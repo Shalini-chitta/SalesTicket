@@ -1,0 +1,33 @@
+﻿@*
+    created by chitta shalini
+    12 12 12 12 12 12
+*@
+@model ListViewModel 
+@{
+}
+<div>
+    <p><a asp-controller="Events" asp-action="EventList" asp-route-id="All">All Events</a></p>
+    @*The loops below read the list o fcategories and creates a link fo each category*@
+    @foreach (Category cat in Model.Categories)
+    {
+        <p> <a asp-controller="Events" asp-action="EventList" asp-route-id="@cat.CategoryName"></a></p>
+    }@*foreach - categories*@
+    <p>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">@Model.SelectedCategory Events</th>
+                </tr>
+            </thead>
+            @foreach (var evt in Model.Events)
+            {
+                <tr>
+                    <td>@evt.Title</td>
+                    <td>
+                        <a asp-controller="Events" asp-action="Details" asp-route-id="@evt.Id">View Details</a>
+                    </td>
+                </tr>
+            }@*foreach - Events*@
+        </table>
+    </p>
+</div>

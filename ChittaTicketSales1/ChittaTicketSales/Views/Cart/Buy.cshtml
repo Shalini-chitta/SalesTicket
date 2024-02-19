@@ -1,0 +1,47 @@
+﻿@*
+    created by chitta shalini
+    14 14 14 14 14 14
+*@
+@model BuyTickets 
+<form asp-action="Confirmation" asp-controller="Cart" method="post">
+    <div asp-validation-summary="All"></div>
+    <table>
+        <tr>
+            <td class="text-dark">Event: </td>
+            <td><input asp-for="EventName" value="@Model.EventName" readonly /></td>
+        </tr>
+        <tr>
+            <td class="text-dark">Ticket Price: </td>
+            <td><input asp-for="TicketPrice" value="@Model.TicketPrice" readonly /></td>
+        </tr>
+        <tr>
+            <td class="text-dark">Name :</td>
+            <td><input asp-for="CustomerName" /></td>
+        </tr>
+        <tr>
+            <td class="text-dark">Email: </td>
+            <td><input asp-for="Email" /></td>
+        </tr>
+        <tr>
+            <td class="text-dark">Number of tickets: </td>
+            <td><input asp-for="NumberOfTickets" /></td>
+        </tr>
+        <tr>
+            <td class="text-dark">Check if Applicable</td>
+            <td>
+                <lable asp-for="SeniorDiscount"></lable>
+                <input asp-for="SeniorDiscount" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-dark">Select delivery option</td>
+            <td>
+                <lable asp-for="DeliveryMode"></lable>
+                <select asp-for="DeliveryMode" asp-items="@Model.DeliveryOptions"></select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Purchase Ticket" /></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,28 @@
+﻿@*
+   created by Chitta shalini
+   13 13 13 13 13
+*@
+@model Event 
+<h3>Event Details</h3>
+<div class= "imgdiv">
+    <img src="~/Images/@Model.ImageId" alt="@Model.Title" />
+</div>
+<div>
+    <h5>@Model.Title</h5>
+    <table>
+        <tr>
+            <td>Description: </td>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <td>Ticket Price: </td>
+            <td>@Model.TicketPrice.ToString("C2")</td>
+        </tr>
+    </table>
+    <p>
+        <a asp-controller="Cart" asp-action="Buy" asp-route-id="@Model.Id">Buy tickets for this event</a>
+    </p>
+    <p>
+        <a asp-controller="Events" asp-action="EventList">Back to Event List</a>
+    </p>
+</div>
